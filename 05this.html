@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+        // this  如何去查看this指向？
+        //  如果this在函数里，那么就是该函数由谁来调用，它就指向谁
+
+        var user = {
+            name: '黄河',
+            age: '33',
+            sayHello: function(){
+                alert(this.name);
+            }
+        };
+
+        user.sayHello();  // '黄河'
+
+        //user.sayHello 就表示的是一个函数，而不是函数调用
+        var greeting = user.sayHello;
+
+        greeting();  // 不会执行？会执行  其实它的值是undefined;
+
+
+    </script>
+</body>
+</html>

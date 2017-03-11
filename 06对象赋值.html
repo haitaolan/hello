@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+        var obj  = new Object();
+
+        obj.a = 1;   // obj买了一个饮水机
+
+        var obj2 = obj;   // 对象赋值赋的是指针(地址)
+
+        obj2.a = 2;  // obj2买了一桶水
+
+        console.log(obj.a);   // 1?  2?    2!
+
+
+        //js里面对象是怎么存储的？   在内存里面存了一个地址而已。
+
+
+
+    </script>
+</body>
+</html>

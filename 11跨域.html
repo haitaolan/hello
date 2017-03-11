@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+    <ul id="resultList">
+    </ul>
+    <script src="http://cdn.bootcss.com/jquery/1.12.0/jquery.min.js"></script>
+    <script>
+        var oUl = $('#resultList');
+
+        $.ajax({
+            url: 'http://10.20.153.68:8000/data.json',
+            success: function(res){
+                console.log(res);
+            }
+        });
+
+
+        $.ajax({
+            url: 'https://suggest.taobao.com/sug',
+            data: {
+                "code": "utf-8",
+                "q": "电脑"
+            },
+            dataType: 'jsonp',   //只要是jsonp请求，就要给他设置这个参数
+            //jsonp: 'jsonp898',   // 用来设置callback的值的
+            jsonpCallback: 'jsonp898'  // 当数据请求成功后，就会去调用一个叫做jsonp898的这么一个函数，并且把拿到的数据，穿进去。
+
+        });
+
+        function jsonp898(res){
+            console.log(res.result);
+            var li = '';
+            for(var i=0;i<res.result.length;i++){
+                li += '<li>'+ res.result[i][0] +'\
+                    <span>fdfdf</span></li>'
+            };
+            oUl.append(li);
+        }
+
+        //什么是跨域？
+        //什么是同源策略?
+        // 指的是相同协议，相同域名，相同端口号下的资源请求，可以正常运行。
+        // 只要你请求的资源是不同协议或者不同域名或者不同端口号下的资源，都会产生跨域！
+        // http   https (苹果里面的应用必须的是https)
+
+
+        // 如何解决跨域？
+        // jsonp (接口是可以支持jsonp) 属于get请求
+            //  那么必定会有一个参数： callback(默认jsonp请求参数名) 它的值是一个回调函数名字。
+
+            //是如何实现跨域的？
+            //就是动态的创建了一个script标签，借助script可以请求第三方资源的这么一个优点。
+
+
+    //https://suggest.taobao.com/sug?code=utf-8&q=椅子&callback=jsonp898
+
+
+
+        // cors
+        // 后端来做的。
+        // 在请求头上设置。
+
+
+
+
+
+
+        // 借助iframe  配合后端来做！
+        // 弄一个反向代理  (中转站)  nignx  全栈
+        // window.name 也可以的。
+
+
+
+
+    </script>
+</body>
+</html>

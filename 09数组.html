@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+        // 数组里面常用的方法：
+            // unshift  (插入到第一个)
+            // shift  (删除第一个)
+
+            // pop  (删除最后一个)
+            // push (插入到最有一个)
+
+
+
+        // splice (删除、添加、替换)  (第一个参数要删除的元素的索引，要删除元素的个数,元素1，元素2....)
+
+        //slice(截取某一个位置)  (第一个值开始的位置， 结束的位置)
+
+        // concat  合并数组    它有一个返回值（返回值就是合并后的数组)
+
+
+        var a = [1,2,3];
+        var b = [4,5,6];
+
+        a = a.concat(b);    //返回值才是最终合并后的结果
+
+
+        // join(参数就是连接各个数据的值)   数组合并成字符串
+
+        // indexOf 根据内容查找相应的索引
+        // lastIndexOf 从后往前数
+        // sort  排序
+
+        // var aa = [99,23,43,12,10,7];
+        //
+        // aa.sort(function(a,b){
+        //     return a-b;
+        // });   //  [ 10,12,23,43,99]
+        // console.log(aa);
+
+
+
+        // 给你一个从小到大排列的数组，然后随机把里面的数据打乱。
+        // Math.random()  产生一个从0-1中间的随机数
+        var arr = [1,2,3,4,5,6,7];
+
+        arr.sort(function(){
+                return Math.random() - 0.5;
+                //如果return 后面的值是正数，那么顺序就是从小到大排列。相反就是从大到小排列。
+        });
+
+        console.log(arr);
+
+
+
+        // 把二维数组转成一维素组？
+
+        var arr2 = [ [1,2,3],[4,5,6],[7,8,9]];   // 二维数组
+
+         // [1,2,3,4,5,6];
+
+        // ecmascript 5   es5
+        // map filter(筛选) reduce foreach   都是用来遍历数组的 ，只不过他们的返回值，以及里面的参数不太一样。
+
+        // reduce(第一个参数表示上一次的值，当前的数据)
+
+        //prev 表示上一次的值 ( 如果是第一次运行，那么prev表示数组里面的第一个数据)
+        // cur (和我们的for循环里面的i是一样的) 表示当前遍历的值  (如果是第一次执行，那么cur表示数组里面的第二个数据)
+
+        // for(var i =0 ;i<arr2.length;i++){
+        //     i ===> 表示当前的数据
+        // }
+        var result = arr2.reduce(function(prev,cur ){
+            return prev.concat(cur);
+        });
+
+        console.log(result);  // [1,2,3,4,5,6,7,8,9]
+
+
+        // 冒泡  快排  选择排序。。
+
+        // bubble sort    / quick sort
+
+
+
+
+
+
+    </script>
+</body>
+</html>

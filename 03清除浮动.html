@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+
+    清除浮动有那种方式？
+
+    1) clear:both
+    给有浮动元素后面的元素给一个clear:both;
+
+    li {
+        float: left;
+    }
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    <div class="main" style="clear:both;">
+        主要内容区域
+    </div>
+
+
+    2) 就是给父元素添加一个clear:both; 通过伪类来添加(:after)
+
+
+    ul:after {
+        content: '';
+        clear:both;
+        *zoom: 1;   //主要为了兼容ie6/7
+    }
+
+
+    3) 给父元素添加一个overflow: hidden;  (用的最多的 )
+
+
+
+
+</body>
+</html>
